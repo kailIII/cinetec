@@ -35,6 +35,10 @@ private EntityManager manager;
     return manager.find(Usuario.class, id);
   }
 
+@Transactional
+public Usuario buscaPorCpf(int cpf) {
+  return manager.find(Usuario.class, cpf);
+}
 
 
 @Transactional

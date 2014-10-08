@@ -14,6 +14,7 @@ import br.com.fatec.cinetech.dao.FilmeDAO;
 import br.com.fatec.cinetech.entity.Filme;
 
 @Controller
+@RequestMapping("/admin")
 public class FilmeController {
 			
 		@Autowired

@@ -1,53 +1,63 @@
 package br.com.fatec.cinetech.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.fatec.cinetech.dao.PoltronaDAO;
+import br.com.fatec.cinetech.dao.FilmeDAO;
 import br.com.fatec.cinetech.dao.UsuarioDAO;
 import br.com.fatec.cinetech.entity.Filme;
 import br.com.fatec.cinetech.entity.Permissao;
-import br.com.fatec.cinetech.entity.Poltrona;
-import br.com.fatec.cinetech.entity.Sala;
-import br.com.fatec.cinetech.entity.Sessao;
 import br.com.fatec.cinetech.entity.Usuario;
+import br.com.fatec.cinetech.service.FuncoesHash;
 
 @Controller
 @RequestMapping("/")
-public class UsuarioController {
+public class PortalController {
 
 	@Autowired
 	private UsuarioDAO usuariodao;
-	
+
 	@Autowired
-	private PoltronaDAO poltronaDAO;
-
-	@RequestMapping("loginForm")
-	public String loginForm() {
-		return "formulario-login";
+	private FilmeDAO filmeDAO;
+	
+	@RequestMapping("/portal")
+	public String retornaPortal(Map<String, Object> map){
+//		  List<Filme> filmes = filmeDAO.getAll(); 
+//		  model.addAttribute("filmes",filmes);
+		Filme filme = new Filme();
+		map.put("filme", filme);
+		map.put("filmeList", filmeDAO.getAll());
+		return "portal";
 	}
+	
+	@RequestMapping("/cadastro")
+	public String retornaCadastro(Map<String, Object> map){
 
-	@RequestMapping("efetuaLogin")
-	public String efetuaLogin(Usuario usuario ,HttpSession session) {
+		return "cadastro";
+	}
+	@RequestMapping("/efetuaLogin")
+	public String efetuaLogin(Usuario usuario ,HttpSession session,Model model) {
 		
 		List<Usuario> usuarios = usuariodao.getAll();
 		Permissao p =  new  Permissao();
 		String result = "";
 		
 		for (Usuario u : usuarios) {
-		
+			usuario.setPassword(FuncoesHash.md5(usuario.getPassword()));
 			if (usuario.getUsername().equals(u.getUsername())&& usuario.getPassword().equals(u.getPassword())) {
 				p = u.getPermissao();		  
 				if (p.getDesc_permissao().equals("cliente") ) {
-					result = "menu";
+					result = "redirect:portal";
 					  session.setAttribute("usuarioLogado", usuario);
+					
 					  break;
 				} else {
 					result = "admin";
@@ -56,52 +66,43 @@ public class UsuarioController {
 				}
 			
 			} else {
-				result = "redirect:loginForm";	
+				result = "redirect:portal";	
 				
 			}
 		}
 		return result;
 	}
+	
+	
+	
+	
+	
+	
 	@RequestMapping("logout")
 	public String logout(HttpServletRequest request, Usuario usuario) {
 		  HttpSession session = request.getSession(false);
 		session.removeAttribute(usuario.getUsername());
 		session.removeAttribute(usuario.getPassword());
 		session.invalidate();
-		return "redirect:loginForm";
-
-	}
-	
-	@RequestMapping("menu/compraingresso")
-	public String compraIngresso(Usuario usuario, ArrayList<Filme> filmes, ArrayList<Sessao> sessoes , ArrayList<Sala> salas,ArrayList<Poltrona> Poltronas) {
-		  
-		
-		
-		
-		
-		return "result";
+		return "redirect:portal";
 
 	}
 	
 	
-	@RequestMapping("menu/escolherPoltrona")
-	public String escolhePoltrona(Poltrona poltrona) {
-		String result;
-		Poltrona p = poltrona;
-		p = poltronaDAO.buscaPorId(poltrona.getId_poltrona());
-		
-		if(p.getOcupado().equals(true)){
-			result= "disponivel";
+	@RequestMapping("/cadastrar")
+	public String cadastrar(Usuario usuario, Model model){
+		Usuario user = usuariodao.buscaPorCpf(usuario.getCpf());
+		if( user==null){
+			usuario.setPassword(FuncoesHash.md5(usuario.getPassword()));
+			Permissao permissao = new Permissao();
+			permissao.setId_permissao(1);
+			usuario.setPermissao(permissao);
+			usuariodao.adiciona(usuario);
 		}else{
-			result = "indisponivel";
+		  String mensagem = "usuário já cadastrado " ;
+			  model.addAttribute("mensagem", mensagem);
 		}		
-		
-		return result;
-
+		return "portal";
 	}
 	
-	
-	
-
 }
-

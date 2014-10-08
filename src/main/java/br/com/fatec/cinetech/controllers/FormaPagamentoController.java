@@ -14,9 +14,11 @@ import br.com.fatec.cinetech.dao.FormaPagamentoDAO;
 import br.com.fatec.cinetech.entity.FormaPagamento;
 
 @Controller
+@RequestMapping("/admin")
 public class FormaPagamentoController {
 
 	@Autowired
+	
 	private FormaPagamentoDAO formaDAO;
 
 	@RequestMapping("/forma")

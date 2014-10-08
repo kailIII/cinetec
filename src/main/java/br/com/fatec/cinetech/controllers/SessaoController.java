@@ -17,6 +17,7 @@ import br.com.fatec.cinetech.entity.Sessao;
 
 
 @Controller
+@RequestMapping("/admin")
 public class SessaoController {
 
 	
@@ -24,7 +25,7 @@ public class SessaoController {
 			@Autowired
 			private SessaoDAO sessaoDAO;
 			
-			@RequestMapping("/sessao")
+			@RequestMapping("sessao")
 			public String setupForm(Map<String, Object> map){
 				Sessao sessao =new Sessao();
 				map.put("sessao", sessao);

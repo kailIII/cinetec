@@ -16,6 +16,7 @@ import br.com.fatec.cinetech.entity.Sala;
 
 
 @Controller
+@RequestMapping("/admin")
 public class SalaController {
 
 	
@@ -23,14 +24,14 @@ public class SalaController {
 			@Autowired
 			private SalaDAO salaDAO;
 			
-			@RequestMapping("/sala")
+			@RequestMapping("sala")
 			public String setupForm(Map<String, Object> map){
 				Sala sala =new Sala();
 				map.put("sala", sala);
 				map.put("salaList", salaDAO.getAll());
 				return "sala";
 			}
-			@RequestMapping(value="/sala.do", method=RequestMethod.POST)
+			@RequestMapping(value="sala.do", method=RequestMethod.POST)
 			public String doActions(@ModelAttribute Sala sala, BindingResult result, @RequestParam String action, Map<String, Object> map){
 				Sala salaResult = new Sala();
 				switch(action.toLowerCase()){	

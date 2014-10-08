@@ -15,6 +15,7 @@ import br.com.fatec.cinetech.entity.diasemana;
 
 
 @Controller
+@RequestMapping("/admin")
 public class diaSemanaController {
 	@Autowired
 	private diasemanaDAO diasemanaDAO;

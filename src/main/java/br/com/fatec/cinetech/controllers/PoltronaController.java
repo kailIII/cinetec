@@ -17,6 +17,7 @@ import br.com.fatec.cinetech.entity.diasemana;
 
 
 @Controller
+@RequestMapping("/admin")
 public class PoltronaController {
 	@Autowired
 	private PoltronaDAO poltronaDAO;

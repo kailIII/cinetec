@@ -17,6 +17,7 @@ import br.com.fatec.cinetech.entity.Sala;
 
 
 @Controller
+@RequestMapping("/admin")
 public class Item_vendaController {
 
 	
