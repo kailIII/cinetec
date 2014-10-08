@@ -42,12 +42,7 @@
 		</br>
 		
 		
-		<select>
-			<option value="">Selecione...</option>
-			<c:forEach var="filme" items="${filmeList}">
-				<option value="">${filme.nm_filme}</option>
-			</c:forEach>
-		</select>
+		
 		
 		
 		

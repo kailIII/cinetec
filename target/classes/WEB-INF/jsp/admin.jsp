@@ -5,12 +5,46 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Admin</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/estilo.css"/> 
+
 </head>
 <body>
-	<h2>Página inicial para o Admin</h2>
-    <p>Bem vindo, ${usuarioLogado.username}</p> 
-   
+
+	<div id="interface">
+		<header id="cabecalho"> 
+
+		<h1>Cinetec</h1>
+
+		<p >
+			
+		</p>
+		
+		<div id="logo">
+		<p>Bem vindo, ${usuarioLogado.username}</p>
+	
+	<a href="logout" value="usuarioLogado">Sair do sistema</a> </p>
+		</div>
+		
+		 </header>
+		 
+		 <section id="corpo"> 
+	
+  		<p><a href="admin/filme" >Gerenciar filmes</a><p>
+  		<p><a href="admin/sala" >Gerenciar salas</a><p>
+  		<p><a href="admin/poltrona" >Gerenciar poltronas</a><p>
+  		<p><a href="admin/sessao" >Gerenciar sessões</a><p>
+  		
+  		
+   	</section>
+   	
+   	
+   	
+   	
+		<footer id="rodape">
+		<p>Copyright &copy; 2014 - by</p>
+
+		</footer>
     
-    <a href="logout">Sair do sistema</a>
+   
 </body>
 </html>
