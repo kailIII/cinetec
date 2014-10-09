@@ -77,6 +77,7 @@
 
 		<br>
 		<table border="1">
+			<th>id</th>
 			<th>Titulo</th>
 			<th>Genero</th>
 			<th>Duração</th>
@@ -88,6 +89,7 @@
 
 			<c:forEach items="${filmeList}" var="filme">
 				<tr>
+					<td>${filme.id_filme}</td>
 					<td>${filme.nm_filme}</td>
 					<td>${filme.categ_filme}</td>
 					<td>${filme.duracao}</td>
