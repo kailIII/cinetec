@@ -44,7 +44,7 @@ public class FilmeController {
 				filmeResult = filme;
 				break;
 			case "search":
-				Filme filmebuscado = filmeDAO.buscaPorId(filme.getId_filme());
+				Filme filmebuscado = filmeDAO.buscaPorNome(filme.getNm_filme());
 				filmeResult = filmebuscado!=null ? filmebuscado : new Filme();
 				break;
 			}

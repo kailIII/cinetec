@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NotFound;
+import org.springframework.beans.factory.annotation.Required;
+
 
 @Entity
 @Table(name = "Filme")
@@ -15,9 +18,10 @@ public class Filme {
 	
 
 	
-	@Id
+	@Id	
+	@GeneratedValue
 	@Column(name = "id_filme")
-	private int id_filme;
+	private int id_filme;	
 	private String nm_filme;	
 	private String categ_filme;
 	private int duracao;
