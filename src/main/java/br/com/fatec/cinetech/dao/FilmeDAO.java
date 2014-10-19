@@ -24,12 +24,14 @@ private EntityManager manager;
 
 @Transactional
   public void adiciona(Filme filme) {
-    manager.persist(filme);
-  }
+	  manager.persist(filme);
+ 
+}
 @Transactional
   public void altera(Filme filme) {
     manager.merge(filme);
   }
+
 
 @Transactional
   public Filme buscaPorId(int id) {
@@ -38,17 +40,17 @@ private EntityManager manager;
 
 @Transactional
 public Filme buscaPorNome(String nome) {
-	String  consulta="SELECT f.nm_filme FROM Filme f";
+	String  consulta="SELECT f FROM Filme f where f.nm_filme = :nome";
 	Query query = manager.createQuery(consulta);
-	Filme filme = (Filme) query.getParameter(nome);
-  return filme;
+	 query.setParameter("nome", nome);
+  return (Filme) query.getSingleResult();
 }
 
 
 @Transactional
   public void remove(Filme filme) {
-	Filme filmeremovido = buscaPorId(filme.getId_filme());
-    manager.remove(filmeremovido);
+	Filme filmeRemove = buscaPorId(filme.getId_filme());
+    manager.remove(filmeRemove);
 }
 
 @Transactional

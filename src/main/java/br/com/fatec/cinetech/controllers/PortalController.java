@@ -91,17 +91,17 @@ public class PortalController {
 	
 	@RequestMapping("/cadastrar")
 	public String cadastrar(Usuario usuario, Model model){
-		Usuario user = usuariodao.buscaPorCpf(usuario.getCpf());
-		if( user==null){
+//		Usuario user = usuariodao.buscaPorCpf(usuario.getCpf());
+//		if( user==null){
 			usuario.setPassword(FuncoesHash.md5(usuario.getPassword()));
 			Permissao permissao = new Permissao();
 			permissao.setId_permissao(1);
 			usuario.setPermissao(permissao);
 			usuariodao.adiciona(usuario);
-		}else{
-		  String mensagem = "usuário já cadastrado " ;
-			  model.addAttribute("mensagem", mensagem);
-		}		
+//		}else{
+//		  String mensagem = "usuário já cadastrado " ;
+//			  model.addAttribute("mensagem", mensagem);
+//		}		
 		return "portal";
 	}
 	

@@ -2,49 +2,46 @@ package br.com.fatec.cinetech.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Sala {
-	
+
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_sala;
 	private int num_sala;
-	@ManyToMany
-	@JoinTable(name = "Sala_has_Poltrona",
-		joinColumns = @JoinColumn(name = "id_sala"),
-		inverseJoinColumns = @JoinColumn(name="id_poltrona"))
-	private List<Poltrona> poltronas;
-	
-	
-	
+	@OneToMany(mappedBy = "sala", targetEntity = SalaPoltrona.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<SalaPoltrona> salaPoltrona;
+
 	public int getId_sala() {
 		return id_sala;
 	}
+
 	public void setId_sala(int id_sala) {
 		this.id_sala = id_sala;
 	}
+
 	public int getNum_sala() {
 		return num_sala;
 	}
+
 	public void setNum_sala(int num_sala) {
 		this.num_sala = num_sala;
 	}
-	public List<Poltrona> getPoltronas() {
-		return poltronas;
+
+	public List<SalaPoltrona> getSalaPoltrona() {
+		return salaPoltrona;
 	}
-	public void setPoltronas(List<Poltrona> poltronas) {
-		this.poltronas = poltronas;
+
+	public void setSalaPoltrona(List<SalaPoltrona> salaPoltrona) {
+		this.salaPoltrona = salaPoltrona;
 	}
-	
-	
-	
-	
 
 }

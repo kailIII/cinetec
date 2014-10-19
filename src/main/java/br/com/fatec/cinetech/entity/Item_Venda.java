@@ -2,6 +2,7 @@ package br.com.fatec.cinetech.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -11,7 +12,7 @@ import javax.persistence.ManyToOne;
 public class Item_Venda {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_item_Venda;
 	@ManyToOne
 	@JoinColumn(name = "id_venda" )

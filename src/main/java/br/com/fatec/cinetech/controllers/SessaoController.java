@@ -36,19 +36,15 @@ public class SessaoController {
 			public String doActions(@ModelAttribute Sessao sessao, BindingResult result, @RequestParam String action, Map<String, Object> map){
 				Sessao sessaoResult = new Sessao();
 				switch(action.toLowerCase()){	
-				case "add":
-					sessaoDAO.adiciona(sessao);
-					sessaoResult = sessao;
-					break;
-				case "edit":
+				case "editar":
 					sessaoDAO.altera(sessao);
 					sessaoResult = sessao;
 					break;
-				case "delete":
+				case "excluir":
 					sessaoDAO.remove(sessao);
 					sessaoResult = sessao;
 					break;
-				case "search":
+				case "buscar":
 					Sessao sessaobuscada =sessaoDAO.buscaPorId(sessao.getId_sessao());
 					sessaoResult = sessaobuscada!=null ? sessaobuscada : new Sessao();
 					break;
@@ -57,4 +53,18 @@ public class SessaoController {
 				map.put("sessaoList", sessaoDAO.getAll());
 				return "sessao";
 			}
+			
+			
+			@RequestMapping(value="/sessao.add", method=RequestMethod.POST)
+			public String doAdd(@ModelAttribute Sessao sessao, BindingResult result, @RequestParam String action, Map<String, Object> map){
+				Sessao sessaoResult = new Sessao();
+					sessaoDAO.adiciona(sessao);
+					sessaoResult = sessao;
+								
+				map.put("sessao", sessaoResult);
+				map.put("sessaoList", sessaoDAO.getAll());
+				return "sessao";
+			}
+			
+			
 		}

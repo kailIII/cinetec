@@ -17,14 +17,15 @@
 
 		<p>
 		<form action="efetuaLogin" method="post">
-			Login: <input type="text" name="username" /> <br /> Senha: <input
-				type="password" name="password" /> <br /> <input type="submit"
-				value="Entrar " />
+			Login: <input type="text" name="username" />  
+			Senha: <input type="password" name="password" />  
+			       <input type="submit" value="Entrar " />
 		</form>
 		</p>
 
-		<p>Bem vindo, ${usuarioLogado.username}</p>
-		<a href="logout" value="usuarioLogado">Sair do sistema</a> </header>
+		<p>Bem vindo, ${usuarioLogado.username}
+		<a href="logout" value="usuarioLogado">Sair do sistema</a> </p>
+		 </header>
 
 
 

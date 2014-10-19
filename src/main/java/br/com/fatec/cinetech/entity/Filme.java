@@ -1,26 +1,23 @@
 package br.com.fatec.cinetech.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
 
-import org.hibernate.annotations.NotFound;
-import org.springframework.beans.factory.annotation.Required;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "Filme")
 public class Filme {
-	
-	
-	
-
-	
+		
 	@Id	
-	@GeneratedValue
-	@Column(name = "id_filme")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_filme;	
 	private String nm_filme;	
 	private String categ_filme;
@@ -30,14 +27,11 @@ public class Filme {
 	private String ator1_filme;
 	private String ator2_filme;
 	private String sinopse_filme;
+	@OneToMany(mappedBy = "filme", targetEntity = Sessao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Sessao> sessoes;
 	
 	
-	public int getId_filme() {
-		return id_filme;
-	}
-	public void setId_filme(int id_filme) {
-		this.id_filme = id_filme;
-	}
+	
 	public String getNm_filme() {
 		return nm_filme;
 	}
@@ -85,6 +79,18 @@ public class Filme {
 	}
 	public void setSinopse_filme(String sinopse_filme) {
 		this.sinopse_filme = sinopse_filme;
+	}
+	public void setId_filme(int id_filme) {
+		this.id_filme = id_filme;
+	}
+	public int getId_filme() {
+		return id_filme;
+	}
+	public List<Sessao> getSessoes() {
+		return sessoes;
+	}
+	public void setSessoes(List<Sessao> sessoes) {
+		this.sessoes = sessoes;
 	}
 
 

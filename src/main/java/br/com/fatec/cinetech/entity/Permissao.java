@@ -1,7 +1,6 @@
 package br.com.fatec.cinetech.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,7 +9,6 @@ import javax.persistence.Table;
 public class Permissao {
 	
 	@Id
-	@GeneratedValue
 	private int id_permissao;
 	private String desc_permissao;
 	public int getId_permissao() {
