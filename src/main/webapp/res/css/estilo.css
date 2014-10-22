@@ -1,0 +1,379 @@
+@charset "UTF-8";
+
+/*importação de fontes  */
+@font-face {
+    font-family: 'Open Sans Regular';
+    src: url('../fonts/opensans-regular-webfont.eot');
+    src: url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/opensans-regular-webfont.woff') format('woff'),
+        url('../fonts/opensans-regular-webfont.ttf') format('truetype'),
+        url('../fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url('../fonts/opensans-bold-webfont.eot');
+    src: url('../fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/opensans-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/*importação de fontes  */
+
+
+body{
+	margin: 0px;
+	background-color: #dddddd;
+	color: rgba(0,0,0,1);
+	font-family: 'Open Sans Regular'
+}
+
+div#interface{
+	width: 900px;
+	background-color: #ffffff;
+	margin: -20px auto 0 auto ;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	padding:10px ;
+}
+
+p{
+	text-align: justify;
+	text-indent: 50px;
+}
+
+a{
+	color: #606060;
+	text-decoration: none;
+}
+
+
+/*formatação do menu*/
+nav#menu{
+	display:block;
+}
+nav#menu ul{
+		/*sumindo com os marcadores*/
+		list-style: none;
+		text-transform:uppercase;
+		position:  absolute;
+		top:-20px;
+		left:300px;
+
+}
+
+
+section#corpo{
+
+	display: block;
+	width: 520px;
+	float: left;
+	border-right: 1px solid #606060;
+	padding-right:15px;
+}
+
+
+
+
+footer#rodape{
+
+	clear: both;
+	border-top: 1px solid #606060;
+
+}
+
+footer#rodape p{
+	text-align: center; 
+}
+
+#main-nav {
+	background-color: #043D00;
+}
+
+#main-nav ul {
+	list-style-type: none; 
+	display:inline-block;
+	margin:20px 0
+}
+
+#main-nav ul li {
+	display: inline-block;
+}
+
+#main-nav ul li a {
+	color: #fff;
+	text-decoration:none;
+}
+
+#main-nav ul li a:hover {
+	color: #F7DD86;
+	transition: 0.2s ease-in-out
+}
+
+#login {
+	 position: relative; 
+	 float:right; 
+	 color: #fff;
+}
+
+#login div {
+	margin:20px 0;
+}
+
+# {
+	float:left;
+}
+#hdr-logo {
+	position: absolute;
+	top:0px;
+	left:0px;
+}
+#hdr-logo a {
+	background: url('../images/Cinetec logo 2.png') no-repeat; 
+	width: 358px; 
+	height: 168px; 
+	display:inline-block; 
+	text-indent: -9999px
+}
+#hdr-search {
+	width:500px; 
+	height:168px;
+	top:0;
+	right:0;
+	opacity: 0.8;
+	transition: opacity 0.5s ease-in-out;
+}
+
+#hdr-search:hover {
+	opacity:1;
+}
+#search-form {
+	display: inline-block;
+	margin:8px
+}
+
+#search-form input[type="text"] {
+	width:480px;
+	margin:0 0 6px 0;
+}
+
+#search-form select {
+	width:480px;
+}
+
+.icon-left {
+	margin-right:10px;
+}
+
+.icon-right {
+	margin-right:10px;
+}
+
+.icon-center {
+	margin:0 10px;
+}
+.clear {
+	clear:both;
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+.wrapper {
+	max-width:1328px;
+	margin: 0 auto;
+}
+
+.cover-box {
+	background:#F7DD86;
+	color: green;
+	display:inline-block;
+	width:300px;
+	padding:10px;
+	margin:4px;
+	position:relative;
+}
+
+.cover-box #cover-title {
+	font-weight: bold;
+}
+
+h1 {
+	text-shadow: 1px 1px 1px #000;
+}
+
+#highlights {
+	color: #fff;
+	height:400px; 
+	overflow:hidden;  
+	position:relative;
+	box-shadow: 1px 1px 1px #000;
+}
+#highlights h2,
+#highlights h3,
+#highlights h4 {
+	font-weight: 300;
+	text-shadow: 1px 1px 1px #000;
+}
+
+#highlights h2 {
+	font-size:50px;
+}
+
+#highlights h3 {
+	font-size:28px;
+}
+
+#highlights h4 {
+	font-size:20px;
+}
+#highlights img {
+	position:relative;
+	top:-300px;
+}
+
+.cover-box #cover-title {
+	margin:0 0 10px 0;
+}
+
+.cover-box #cover-content {
+	margin:10px 0;
+}
+.cover-box:hover .cover-on-hover{
+	background: #043D00;
+	transition:opacity 0.2s ease-in-out;
+	display:block;
+	cursor: pointer;
+	opacity:0.7;
+}
+
+.cover-img img {
+	background-color: #ccc;
+}
+
+.cover-on-hover {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	opacity:0;
+}
+
+.cover-on-hover div {
+	margin-top:40%;
+	margin-left:20%;
+	font-weight:600;
+	padding:20px;
+}
+
+.cover-on-hover div a {
+	color: #F7DD86;
+	text-decoration: none;
+}
+
+.cover-on-hover div a:hover {
+	color: #FFEFBB;
+}
+
+.ico {
+	font-size:30px;
+	margin-right:8px;
+}
+
+#login:hover #form-login {
+	display: block;
+	opacity: 1;
+	cursor: pointer
+}
+
+#form-login {
+	padding:30px;
+	position: absolute;
+	top: 100%;
+	display:none;	
+	background-color:#0A6604;
+	opacity:0;
+    transition:opacity 0.5s ease-in-out;
+    right:0;
+    z-index: 9999;
+}
+
+#form-login a {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.ylw-box {
+	background-color:#F7DD86;
+	color:green;
+	border-radius:4px; 	 
+	box-shadow: 1px 1px 2px #000;
+	padding:10px
+}
+
+.tbl-data {
+	border:1px solid #aaa;
+	border-radius:2px;
+}
+.tbl-data th {
+	padding:4px;
+	background-color:#ccc;
+	color:#2F1A1A;
+	border-radius: 2px;
+	text-shadow:1px 1px 1px #FFF;
+}
+.tbl-data td {
+	border:1px solid #ccc;
+	border-radius:2px;
+	padding:4px;
+}
+input[type="text"], 
+input[type="password"],
+select
+{
+	box-shadow: inset 1px 1px 1px rgba(0,0,0,0.35);
+	box-sizing: border-box;
+	border: 0;
+	padding:4px;
+	margin:2px 0;
+	font-size:14px; 
+}
+
+input[type="submit"] {
+	margin:4px 0;
+	background-color:green; 
+	color: #fff; 
+	border:0;
+	padding:6px 10px;
+	transition: background-color 0.5s ease-in-out;
+	text-shadow: 1px 1px 0 #000;
+}
+
+input[type="submit"]:hover {
+	background-color: rgb(39, 157, 39);
+}
+
+
+.home-h1 {
+	color: #fff;
+	font-weight:normal; 
+	font-size:40px;
+	background-color: #29691F;
+	box-shadow: 1px 1px 1px #000;
+	margin: 0 0 20px 0;
+}
+
+.hl-text {
+	position: absolute; 
+	bottom:0;
+	left:30px;
+	color:#fff;
+}
+
+
+
+

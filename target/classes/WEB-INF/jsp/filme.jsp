@@ -3,7 +3,9 @@
 <html>
 <head>
 <title>Filmes Gerenciamento</title>
-<link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/estilo.css"/> 
+<link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/res/css/estilo.css"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/res/css/font-awesome.min.css"/>
+ <script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/jquery-1.7.1.min.js"></script>
 
 </head>
 <body>
@@ -29,7 +31,15 @@
 	
 
 
-
+	<div class="ylw-box">
+	<script>
+		$(document).ready(function(){
+			$(".fa-pencil").click(function(){
+				$(this).id
+				
+			});
+		});
+	</script>
 		<form:form action="filme.do" method="POST" commandName="filme">
 			<table>
 				<tr>
@@ -73,10 +83,10 @@
 				</tr>
 			</table>
 		</form:form>
-
+</div>
 
 		<br>
-		<table border="1">
+		<table class="tbl-data" border="0">
 			<th>id</th>
 			<th>Titulo</th>
 			<th>Genero</th>
@@ -86,6 +96,8 @@
 			<th>Ator</th>
 			<th>Ator</th>
 			<th>Sinopse</th>
+			<th></th>
+			<th></th>
 
 			<c:forEach items="${filmeList}" var="filme">
 				<tr>
@@ -98,6 +110,8 @@
 					<td>${filme.ator1_filme}</td>
 					<td>${filme.ator2_filme}</td>
 					<td>${filme.sinopse_filme}</td>
+					<td><i class="fa fa-pencil"></i></td>
+					<td><i class="fa fa-close"></i></td>
 				</tr>
 			</c:forEach>
 		</table>

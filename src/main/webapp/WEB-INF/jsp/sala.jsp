@@ -4,7 +4,7 @@
 <head>
 <title>Filmes Gerenciamento</title>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.servletContext.contextPath}/css/estilo.css" />
+	href="${pageContext.servletContext.contextPath}/res/css/estilo.css" />
 
 </head>
 <body>
