@@ -27,7 +27,7 @@ public class Usuario {
 	private String sbr_usuario;
 	private String username;
 	private String password;
-	private int cpf;
+	private int cpf_usuario;
 
 	public int getId_usuario() {
 		return id_usuario;
@@ -65,16 +65,13 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getCpf() {
-		return cpf;
+	public int getCpf_usuario() {
+		return cpf_usuario;
 	}
-	public void setCpf(int cpf) {
-		this.cpf = cpf;
+	public void setCpf_usuario(int cpf_usuario) {
+		this.cpf_usuario = cpf_usuario;
 	}
-	
-	
-	
-	
+		
 	
 	
 }

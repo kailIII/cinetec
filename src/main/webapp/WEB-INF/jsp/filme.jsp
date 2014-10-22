@@ -13,7 +13,7 @@
 		<header id="cabecalho">
 
 		<h1>Cinetec</h1>
-
+			<!--  <a href="<c:url value="../admin"/>">voltar</a></li>-->
 		<p></p>
 
 		<div id="logo">
@@ -22,7 +22,7 @@
 			
 			</p>
 		</div>
-
+		
 		</header>
 
 		<section id="corpo">

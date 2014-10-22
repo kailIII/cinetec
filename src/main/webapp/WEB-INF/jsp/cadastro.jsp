@@ -23,8 +23,7 @@
 		</form>
 		</p>
 
-		<p>Bem vindo, ${usuarioLogado.username}
-		<a href="logout" value="usuarioLogado">Sair do sistema</a> </p>
+		
 		 </header>
 
 
@@ -62,6 +61,7 @@
 					<label for="cpf">CPF</label> <input type="text"
 						class="form-control" id="cpf" name="cpf">
 				</div>
+				
 
 				<input type="submit" value="Cadastrar " />
 			</fieldset>

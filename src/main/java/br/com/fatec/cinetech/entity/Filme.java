@@ -29,6 +29,7 @@ public class Filme {
 	private String sinopse_filme;
 	@OneToMany(mappedBy = "filme", targetEntity = Sessao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Sessao> sessoes;
+	private String img_filme;
 	
 	
 	
@@ -92,7 +93,13 @@ public class Filme {
 	public void setSessoes(List<Sessao> sessoes) {
 		this.sessoes = sessoes;
 	}
-
+	public String getImg_filme() {
+		return img_filme;
+	}
+	public void setImg_filme(String img_filme) {
+		this.img_filme = img_filme;
+	}
+	
 
 
 

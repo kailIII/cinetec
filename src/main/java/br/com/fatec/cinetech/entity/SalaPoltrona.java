@@ -17,8 +17,8 @@ public class SalaPoltrona {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private Boolean ocupado;
+	private int id_salaPoltrona;
+	private Boolean isocupado;
 	@ManyToOne
 	@JoinColumn(name="id_poltrona")
 	 private Poltrona poltrona;
@@ -28,24 +28,15 @@ public class SalaPoltrona {
 	
 	@OneToMany(mappedBy = "salaPoltrona", targetEntity = Sessao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Sessao> sessoes;
-		
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	
 
-	public Boolean getOcupado() {
-		return ocupado;
+	public Boolean getIsocupado() {
+		return isocupado;
 	}
 
-	public void setOcupado(Boolean ocupado) {
-		this.ocupado = ocupado;
+	public void setIsocupado(Boolean isocupado) {
+		this.isocupado = isocupado;
 	}
 
 	public Poltrona getPoltrona() {
@@ -71,5 +62,15 @@ public class SalaPoltrona {
 	public void setSessoes(List<Sessao> sessoes) {
 		this.sessoes = sessoes;
 	}
+
+	public int getId_salaPoltrona() {
+		return id_salaPoltrona;
+	}
+
+	public void setId_salaPoltrona(int id_salaPoltrona) {
+		this.id_salaPoltrona = id_salaPoltrona;
+	}
+	
+	
 
 }

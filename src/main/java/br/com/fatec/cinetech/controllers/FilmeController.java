@@ -71,6 +71,25 @@ public class FilmeController {
 	}
 	
 		
+	@RequestMapping("logout")
+	public String logout(HttpServletRequest request, Usuario usuario) {
+		  HttpSession session = request.getSession(false);
+		session.removeAttribute(usuario.getUsername());
+		session.removeAttribute(usuario.getPassword());
+		session.invalidate();
+		return "redirect:portal";
+
+	}
+	
+	
+	@RequestMapping("voltar")
+	public String voltar() {
+		 return "forward:admin";
+
+	}
+	
+	
+	
 	
 	
 

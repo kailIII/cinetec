@@ -12,6 +12,7 @@ public class diasemana {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int id_dia_Semana;
 		private String nm_dia_semana;
+		
 		public int getId_dia_Semana() {
 			return id_dia_Semana;
 		}

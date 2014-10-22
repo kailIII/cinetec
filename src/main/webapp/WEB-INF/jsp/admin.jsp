@@ -28,8 +28,9 @@
 		 </header>
 		 
 		 <section id="corpo"> 
-	
-  		<p><a href="admin/filme" >Gerenciar filmes</a><p>
+		 
+		<p><a href="admin/usuario" >Gerenciar usuarios</a><p>
+		<p><a href="admin/filme" >Gerenciar filmes</a><p>
   		<p><a href="admin/sala" >Gerenciar salas</a><p>
   		<p><a href="admin/poltrona" >Gerenciar poltronas</a><p>
   		<p><a href="admin/sessao" >Gerenciar sessões</a><p>
