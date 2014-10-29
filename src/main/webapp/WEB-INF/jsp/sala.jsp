@@ -23,40 +23,95 @@
 		</header>
 
 		<section id="corpo">
-		
-		 <form:form action="sala.do" method="POST" commandName="sala">
-			<table>
-				<tr>
-					<td>Numero da Sala</td>
-					<td><form:input path="num_sala" /></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" name="action" value="Add" />
-						<input type="submit" name="action" value="Edit" /> <input
-						type="submit" name="action" value="Delete" /> <input
-						type="submit" name="action" value="Search" /></td>
-				</tr>
-			</table>
-		</form:form> <br>
-		<table border="1">
-			<th>Numero da sala</th>
+
+		<h1>Salas</h1>
 
 
-			<c:forEach items="${salaList}" var="sala">
-				<tr>
-					<td>${sala.num_sala}</td>
+		<div id="corpoActions">
+			<fieldset id="actsSala">
+				<legend>gerenciar salas </legend>
+				<form:form action="sala.do" method="POST" commandName="sala">
+					<table>
+						<tr>
+							<td>Codigo da Sala</td>
+							<td><form:input path="id_sala" id="c1"/></td>
+						</tr>
+						<tr>
+							<td>Numero da Sala</td>
+							<td><form:input path="num_sala" id="c2"/></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="submit" name="action"
+								value="Edit" /> <input type="submit" name="action"
+								value="Delete" /> <input type="submit" name="action"
+								value="Search" /> <input
+								type="button" value="Limpar" onClick="limpa()"></td>
+						</tr>
+					</table>
+				</form:form>
+				<br>
+			</fieldset>
+		</div>
 
-				</tr>
-			</c:forEach>
-		</table>
+		<div id="corpoAdd">
+			<fieldset id="addsSala">
+				<legend>adicionar salas </legend>
+				<form:form action="sala.do" method="POST" commandName="sala">
+					<table>
+						<tr>
+							<td>Numero da Sala</td>
+							<td><form:input path="num_sala" id="c3"/></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="submit" name="action"
+								value="Add"  /> <input
+								type="button" value="Limpar" onClick="limpa()"></td>
+						</tr>
+					</table>
+				</form:form>
+				<br>
+			</fieldset>
+		</div>
 
 
-		
+
+		<div id="corpoForm">
+			<fieldset id="lista">
+				<legend>Lista das Salas </legend>
+
+				<table border="1">
+					<th>Codigo da sala</th>
+					<th>Numero da sala</th>
+
+
+					<c:forEach items="${salaList}" var="sala">
+						<tr>
+							<td>${sala.id_sala}</td>
+							<td>${sala.num_sala}</td>
+
+						</tr>
+					</c:forEach>
+				</table>
+			</fieldset>
+		</div>
+
+
 
 
 
 
 		</section>
+
+
+		<script>
+			function limpa() {
+				document.getElementById('c1').value = "";
+				document.getElementById('c2').value = "";
+				document.getElementById('c3').value = "";
+
+			}
+		</script>
+
 
 		<footer id="rodape">
 		<p>Copyright &copy; 2014 - by</p>

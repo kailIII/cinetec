@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.fatec.cinetech.dao.PoltronaDAO;
 import br.com.fatec.cinetech.dao.diasemanaDAO;
+import br.com.fatec.cinetech.entity.Filme;
 import br.com.fatec.cinetech.entity.Poltrona;
 import br.com.fatec.cinetech.entity.diasemana;
 
@@ -33,19 +34,19 @@ public class PoltronaController {
 	public String doActions(@ModelAttribute Poltrona poltrona, BindingResult result, @RequestParam String action, Map<String, Object> map){
 		Poltrona poltronaResult = new Poltrona();
 		switch(action.toLowerCase()){	
-		case "add":
+		case "adicionar":
 			poltronaDAO.adiciona(poltrona);
 			poltronaResult = poltrona;
 			break;
-		case "edit":
+		case "editar":
 			poltronaDAO.altera(poltrona);
 			poltronaResult = poltrona;
 			break;
-		case "delete":
+		case "excluir":
 			poltronaDAO.remove(poltrona);
 			poltronaResult = poltrona;
 			break;
-		case "search":
+		case "buscar":
 			Poltrona poltronabuscada = poltronaDAO.buscaPorId(poltrona.getId_poltrona());
 			poltronaResult = poltronabuscada!=null ? poltronabuscada : new Poltrona();
 			break;
@@ -54,4 +55,20 @@ public class PoltronaController {
 		map.put("poltronaList", poltronaDAO.getAll());
 		return "poltrona";
 	}
+	
+	@RequestMapping(value = "/poltrona.add", method = RequestMethod.POST)
+	public String adicionar(@ModelAttribute Poltrona poltrona, BindingResult result,
+			@RequestParam String action, Map<String, Object> map) {
+		Poltrona poltronaResult = new Poltrona();
+			
+		poltronaDAO.adiciona(poltrona);
+		poltronaResult = poltrona;
+		
+		map.put("poltrona", poltronaResult);
+		map.put("poltronaList", poltronaDAO.getAll());
+		return "poltrona";
+	}
+	
+	
+	
 }

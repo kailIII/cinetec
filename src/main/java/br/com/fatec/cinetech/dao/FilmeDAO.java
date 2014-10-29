@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,18 +24,27 @@ private EntityManager manager;
 
 @Transactional
   public void adiciona(Filme filme) {
-    manager.persist(filme);
-  }
+	  manager.persist(filme);
+ 
+}
 @Transactional
   public void altera(Filme filme) {
     manager.merge(filme);
   }
+
 
 @Transactional
   public Filme buscaPorId(int id) {
     return manager.find(Filme.class, id);
   }
 
+@Transactional
+public Filme buscaPorNome(String nome) {
+	String  consulta="SELECT f FROM Filme f where f.nm_filme = :nome";
+	Query query = manager.createQuery(consulta);
+	 query.setParameter("nome", nome);
+  return (Filme) query.getSingleResult();
+}
 
 
 @Transactional
@@ -50,5 +60,6 @@ public List<Filme> getAll() {
 }
 
 
-}
 
+
+}

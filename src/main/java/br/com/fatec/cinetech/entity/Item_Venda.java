@@ -2,6 +2,7 @@ package br.com.fatec.cinetech.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -11,14 +12,14 @@ import javax.persistence.ManyToOne;
 public class Item_Venda {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_item_Venda;
 	@ManyToOne
 	@JoinColumn(name = "id_venda" )
 	private Venda venda;
 	@ManyToOne
-	@JoinColumn(name = "id_sessao" )
-	private Sessao sessao;
+	@JoinColumn(name = "id_sessao_dia" )
+	private SessaoDia sessaoDia;
 	private int qtd_item;
 	private int tipo_item;
 	private double vl_item;
@@ -36,12 +37,7 @@ public class Item_Venda {
 	public void setVenda(Venda venda) {
 		this.venda = venda;
 	}
-	public Sessao getSessao() {
-		return sessao;
-	}
-	public void setSessao(Sessao sessao) {
-		this.sessao = sessao;
-	}
+	
 	public int getQtd_item() {
 		return qtd_item;
 	}
@@ -59,6 +55,12 @@ public class Item_Venda {
 	}
 	public void setVl_item(double vl_item) {
 		this.vl_item = vl_item;
+	}
+	public SessaoDia getSessaoDia() {
+		return sessaoDia;
+	}
+	public void setSessaoDia(SessaoDia sessaoDia) {
+		this.sessaoDia = sessaoDia;
 	}
 	
 	

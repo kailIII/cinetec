@@ -17,14 +17,14 @@
 
 		<p>
 		<form action="efetuaLogin" method="post">
-			Login: <input type="text" name="username" /> <br /> Senha: <input
-				type="password" name="password" /> <br /> <input type="submit"
-				value="Entrar " />
+			Login: <input type="text" name="username" />  
+			Senha: <input type="password" name="password" />  
+			       <input type="submit" value="Entrar " />
 		</form>
 		</p>
 
-		<p>Bem vindo, ${usuarioLogado.username}</p>
-		<a href="logout" value="usuarioLogado">Sair do sistema</a> </header>
+		
+		 </header>
 
 
 
@@ -61,6 +61,7 @@
 					<label for="cpf">CPF</label> <input type="text"
 						class="form-control" id="cpf" name="cpf">
 				</div>
+				
 
 				<input type="submit" value="Cadastrar " />
 			</fieldset>

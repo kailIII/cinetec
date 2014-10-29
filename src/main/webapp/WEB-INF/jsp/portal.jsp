@@ -3,6 +3,7 @@
 <%@ include file="/WEB-INF/jsp/includes.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<<<<<<< HEAD
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Cinetec Portal</title>
@@ -64,6 +65,29 @@
 <!-- 		</p> -->
 		
 <!-- 		<div id="logo"> -->
+=======
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>--Cinetec--Portal</title>
+
+<link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/css/estilo.css"/> 
+</head>
+<body>
+	<div id="interface">
+		<header id="cabecalho"> 
+
+		<h1>Cinetec</h1>
+
+		<p >
+			<form action="efetuaLogin" method="post">
+				Login: <input type="text" name="username" />  Senha: <input
+					type="password" name="password" /> <input type="submit"
+					value="Entrar " />
+			</form>
+		</p>
+		
+		<div id="logo">
+>>>>>>> bda0b105f1ee083a57ad133232d8e7dae87b7006
 	
 	
 <!-- 		<p><a href="cadastro" >Cadastrar</a>&nbsp &nbsp -->
@@ -82,7 +106,10 @@
 <!-- 		</br> -->
 <!-- 		</br> -->
 		
+<<<<<<< HEAD
 		
+=======
+>>>>>>> bda0b105f1ee083a57ad133232d8e7dae87b7006
 		
 		
 <!-- 		 </section> -->

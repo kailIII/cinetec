@@ -2,15 +2,17 @@ package br.com.fatec.cinetech.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class diasemana {
 
 		@Id
-		@GeneratedValue
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int id_dia_Semana;
 		private String nm_dia_semana;
+		
 		public int getId_dia_Semana() {
 			return id_dia_Semana;
 		}

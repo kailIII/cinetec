@@ -2,6 +2,7 @@ package br.com.fatec.cinetech.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,7 +12,7 @@ public class TipoSessao {
 	
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTipo_sessao;
 	private String desc_tipo_sessao;
 	private String dub_leg_sessao;
