@@ -38,7 +38,7 @@ public class Sessao {
 		@OneToMany(mappedBy = "sessao", targetEntity = SessaoDia.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 		private List<SessaoDia> sessoesdia;
 		
-		private Date hor_sessao;
+		private String hor_sessao;
 		private Date dt_final_sessao;
 		public int getId_sessao() {
 			return id_sessao;
@@ -59,10 +59,10 @@ public class Sessao {
 		public void setTiposessao(TipoSessao tiposessao) {
 			this.tiposessao = tiposessao;
 		}
-		public Date getHor_sessao() {
+		public String getHor_sessao() {
 			return hor_sessao;
 		}
-		public void setHor_sessao(Date hor_sessao) {
+		public void setHor_sessao(String hor_sessao) {
 			this.hor_sessao = hor_sessao;
 		}
 		public Date getDt_final_sessao() {

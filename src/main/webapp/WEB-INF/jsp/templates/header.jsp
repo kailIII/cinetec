@@ -1,17 +1,22 @@
 <%@ include file="/WEB-INF/jsp/includes.jsp" %>
 <div>
 	<header>
-		
+			<c:set var="url" scope="request" value="${pageContext.request.requestURI}"/>
 <!-- 					<div id="next" style="position: absolute; right:0; top:0; margin:auto 0;">PROXIMO</div> -->
 <!-- 					<div id="prev" style="position: absolute; left:0; top:0; margin:auto 0;">ANTERIOR</div> -->
+			<c:set var="isHome" scope="request" value="${fn:endsWith(url, 'portal')}"/>
 		<nav id="main-nav">
+			<div class="wrapper">
+				<c:if test="${isHome}">
+					<div id="logo-small">
+						<a href="#"><h1>Cinetec</h1></a>
+					</div>
+				</c:if>
 				<ul>
-					<li><a href="#">Opção 1</a></li>
-					<li><a href="#">Opção 2</a></li>
-					<li><a href="#">Opção 3</a></li>
-					<li><a href="#">Opção 4</a></li>
-					<li><a href="#">Opção 5</a></li>
-					<li><a href="#">Opção 6</a></li>
+					<li><a href="<c:url value="/portal"/>">Home</a></li>
+					<li><a href="#">Cinetec</a></li>
+					<li><a href="#">Sessões</a></li>
+					<li><a href="#">Promoções</a></li>
 				</ul>
 				<div id="login">
 					<c:if test="${usuarioLogado.userName != null}" >
@@ -23,15 +28,21 @@
 						<input type="password" name="password"/><br/>
 						<a href="cadastro">Cadastre-se</a><input type="submit" value="Entrar"/>
 					</form>
-				</div>	
+				</div>
+			</div>	
 		</nav>
+		
+	<c:choose>
+	<c:when test="${fn:endsWith(url, 'portal')}">
+		
 		<div id="highlights">
 			<img style="width:100%;height:auto;" src="res/images/rei-leao.png"/>
-					<div class="hl-text">
+			<div class="wrapper absolute">
+			<div class="hl-text">
 						<h2>Lion King</h2>
 						<h3>Every friday, at 20:00</h3>
 						<h4>3d</h4>
-					</div>		
+			</div>				
 			<div id="hdr-logo">
 				<a href="#">Cinetec - Logo</a>
 			</div>
@@ -48,6 +59,13 @@
 					<input type="submit" />
 				</form>
 			</div>
-</div>
+		</div>
+	</div>
+	</c:when>
+	<c:otherwise>
+	
+	
+	</c:otherwise>
+	</c:choose>
 	</header>
 </div>

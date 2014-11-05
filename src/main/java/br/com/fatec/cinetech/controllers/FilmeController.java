@@ -3,6 +3,7 @@ package br.com.fatec.cinetech.controllers;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.fatec.cinetech.dao.FilmeDAO;
 import br.com.fatec.cinetech.entity.Filme;
@@ -31,6 +33,7 @@ public class FilmeController {
 		map.put("filmeList", filmeDAO.getAll());
 		return "filme";
 	}
+	
 
 	@RequestMapping(value = "/filme.do", method = RequestMethod.POST)
 	public String doActions(@ModelAttribute Filme filme, BindingResult result,
@@ -44,7 +47,7 @@ public class FilmeController {
 			break;
 		case "excluir":
 			filmeDAO.remove(filme);
-			filmeResult = filme;
+			filmeResult = new Filme();
 			break;
 		case "buscar":
 			Filme filmebuscado = filmeDAO.buscaPorId(filme.getId_filme());
@@ -56,19 +59,28 @@ public class FilmeController {
 		return "filme";
 	}
 
-	
 	@RequestMapping(value = "/filme.add", method = RequestMethod.POST)
 	public String adicionar(@ModelAttribute Filme filme, BindingResult result,
-			@RequestParam String action, Map<String, Object> map) {
+			Map<String, Object> map) {
 		Filme filmeResult = new Filme();
-			
-			filmeDAO.adiciona(filme);
-			filmeResult = filme;
 		
+		filmeDAO.adiciona(filme);
+
 		map.put("filme", filmeResult);
 		map.put("filmeList", filmeDAO.getAll());
 		return "filme";
 	}
+//	@RequestMapping(value = "/filme.remove", method = RequestMethod.POST)
+//	public @ResponseBody String remover(@ModelAttribute Filme filme, BindingResult result) throws Exception {
+//		filmeDAO.remove(filme);
+//		if (!result.hasErrors()) {
+//			return "Filme removido com sucesso";
+//		} else {
+//			return "Erro ao cadastrar filme";
+//		}		
+//	}	
+	
+	
 	
 		
 	@RequestMapping("logout")

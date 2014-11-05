@@ -76,9 +76,7 @@ public class SessaoController {
 			@RequestMapping(value="/sessao.add", method=RequestMethod.POST)
 			public String doAdd(@ModelAttribute Sessao sessao,Filme filme,diasemana diasemana, Sala sala, BindingResult result, @RequestParam String action, Map<String, Object> map){
 				Sessao sessaoResult = new Sessao();
-					System.out.println(filme.getNm_filme());
 					sessao.setFilme(filme);
-				
 					sessaoDAO.adiciona(sessao);
 					sessaoResult = sessao;
 								

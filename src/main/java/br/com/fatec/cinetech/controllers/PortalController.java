@@ -77,7 +77,6 @@ public class PortalController {
 	
 	
 	
-	
 	@RequestMapping("logout")
 	public String logout(HttpServletRequest request, Usuario usuario) {
 		  HttpSession session = request.getSession(false);

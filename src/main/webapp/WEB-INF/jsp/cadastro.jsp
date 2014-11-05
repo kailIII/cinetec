@@ -7,73 +7,51 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.servletContext.contextPath}/res/css/estilo.css" />
-
+<script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/jquery-1.7.1.min.js"></script> 
+ <script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/api-ajax.js"></script> 
+ <script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/page-functions.js"></script>
+ <script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/formnav.js"></script>
 </head>
 <body>
-	<div id="interface">
-		<header id="cabecalho">
-
-		<h1>Cinetec</h1>
-
-		<p>
-		<form action="efetuaLogin" method="post">
-			Login: <input type="text" name="username" />  
-			Senha: <input type="password" name="password" />  
-			       <input type="submit" value="Entrar " />
-		</form>
-		</p>
-
-		
-		 </header>
-
-
-
-
-
-		<section id="corpo">
-
-
-		<form action="cadastrar" method="post">
-			<fieldset>
-				<legend>Dados pessoais</legend>
-
-				<div class="form-group">
-					<label for="nome">Nome </label> <input type="text"
-						class="form-control" id="nome" name="nm_usuario">
-				</div>
-
-				<div class="form-group">
-					<label for="nome">Sobrenome </label> <input type="text"
-						class="form-control" id="nome" name="sbr_usuario">
-				</div>
-
-				<div class="form-group">
-					<label for="nome">Login </label> <input type="text"
-						class="form-control" id="nome" name="username">
-				</div>
-
-				<div class="form-group">
-					<label for="nome">Password </label> <input type="password"
-						class="form-control" id="nome" name="password">
-				</div>
-
-				<div class="form-group">
-					<label for="cpf">CPF</label> <input type="text"
-						class="form-control" id="cpf" name="cpf">
-				</div>
-				
-
-				<input type="submit" value="Cadastrar " />
-			</fieldset>
-		</form>
-
-		</section>
-
-
-		<footer id="rodape">
-		<p>Copyright &copy; 2014 - by</p>
-
-		</footer>
+ 	<jsp:include page = "templates/header.jsp" /> 
+ 	<h1 class="home-h1"><div class="wrapper">Cadastro de usuário</div></h1>
+ 	<div class="wrapper">
+ 		<div class="ylw-box">
+			<form action="cadastrar" method="post" class="add-edit-form">
+				<table>
+					<tr>
+						<td><label for="nome">Nome </label> </td>
+						<td><input type="text" class="form-control" id="nome" name="nm_usuario" /></td>
+					</tr>
+					<tr>
+						<td><label for="nome">Sobrenome </label> </td>
+						<td><input type="text" class="form-control" id="nome" name="sbr_usuario" /></td>
+					</tr>	
+					<tr>
+						<td><label for="nome">Login </label> </td>
+						<td><input type="text" class="form-control" id="nome" name="username" /></td>
+					</tr>
+	
+					<tr>
+						<td><label for="nome">Password </label> </td>
+						<td><input type="password" class="form-control" id="nome" name="password" /></td>
+					</tr>
+	
+					<tr>
+						<td><label for="cpf">CPF</label></td>
+						<td><input type="text" class="form-control" id="cpf" name="cpf" /></td>
+					</tr>
+					
+					<tr>
+						<td></td>
+						<td><input type="submit" value="Cadastrar " /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
 	</div>
+	<br>
+	<br>
+	<jsp:include page = "templates/footer.jsp" /> 
 </body>
 </html>
